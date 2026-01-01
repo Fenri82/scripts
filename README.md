@@ -49,14 +49,6 @@ The script uses **FFmpeg** for all video/audio processing and applies intelligen
 
 Your working directory should look like this:
 
-Jasně, Martine — tady máš **čistý, správně zformátovaný Markdown blok**, přesně tak, jak má být v README.
-
-Nic se nerozbije, žádné divné znaky, jen čistý GitHub‑ready code block.
-
----
-
-# ✅ **Correct Markdown Folder Structure (copy‑paste ready)**
-
 ```markdown
 convert-folder/
  ├─ video-convert-hevc.ps1
