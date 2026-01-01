@@ -83,7 +83,6 @@ Extract the `.7z` file and copy:
 
 ```
 ffmpeg.exe
-ffplay.exe
 ffprobe.exe
 ```
 
