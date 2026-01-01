@@ -17,6 +17,8 @@ Fast, dependency‑free PowerShell script for converting AVI/MP4/MKV to HEVC usi
 
 A fast, dependency‑free PowerShell script that automatically converts mixed AVI / MP4 / MKV libraries into clean, modern HEVC MKV files — without installing anything.
 
+* Note: Nvidia GPU with support for NVENC required (tested on RTX 4070Ti 12GB, 500 MB file .avi takes about 30-50s to convert depending on quality settings such as: if there needs to be any audio track repaired, upscaling, input codec and so on).
+
 This tool is ideal for:
 - Cleaning old video collections
 - Converting legacy AVI/XviD/DivX files
