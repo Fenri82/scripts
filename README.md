@@ -152,6 +152,143 @@ convert-folder/converted/
 
 ---
 
+# 🛠 **Common Issues & Troubleshooting**
+
+### 1. PowerShell script fails to run or shows strange errors  
+**Cause:**  
+Windows Notepad (especially on Windows 11) saves files as **UTF‑8 with BOM**, even when you choose “UTF‑8”.  
+PowerShell scripts **must not** contain BOM or hidden Unicode characters.
+
+**Symptoms:**
+- Script does not start
+- Random parsing errors
+- “Unexpected token” errors
+- Variables not recognized
+- Encoding-related crashes
+
+**Fix:**
+Use a proper editor that supports **ASCII** or **UTF‑8 (no BOM)**:
+
+Recommended editors:
+- **Notepad++** → Encoding → “Encode in ANSI” or “UTF‑8 (without BOM)”
+- **VS Code** → Save with encoding → “UTF‑8”
+- **Sublime Text**
+- **Kate / Geany / Vim / Emacs**
+
+Avoid:
+- ❌ Windows Notepad (Win10/Win11)
+- ❌ WordPad
+- ❌ Any editor that silently adds BOM
+
+---
+
+### 2. FFmpeg not found  
+**Cause:**  
+`ffmpeg.exe` and `ffprobe.exe` are missing or not placed in the correct folder.
+
+**Fix:**
+Download the official full build:
+
+https://www.gyan.dev/ffmpeg/builds/
+
+Download:
+- **ffmpeg-git-full.7z**
+
+Extract and place:
+```
+convert-folder/
+ └─ codecs/
+      ├─ ffmpeg.exe
+      └─ ffprobe.exe
+```
+---
+
+### 3. GPU encoding not working (NVENC)  
+**Cause:**  
+- Outdated NVIDIA drivers  
+- Unsupported GPU  
+- Using a non‑full FFmpeg build  
+
+**Fix:**
+- Update NVIDIA drivers  
+- Ensure you downloaded **ffmpeg-git-full.7z**  
+- Check GPU support: https://developer.nvidia.com/video-encode-decode-gpu-support-matrix
+
+---
+
+### 4. Script does nothing / instantly exits  
+**Cause:**  
+`$rootDir` is not set correctly.
+
+**Fix:**
+Edit this line in the script:
+
+```powershell
+$rootDir = "C:\Path\To\Your\ConvertFolder"
+```
+
+Make sure the folder contains:
+- The script  
+- A `codecs/` folder  
+- Your video files  
+
+---
+
+### 5. Converted files look worse than expected  
+**Cause:**  
+You changed the QP value or preset.
+
+**Fix:**  
+Default settings are tuned for:
+- High quality  
+- Fast GPU encoding  
+- Reasonable file size  
+
+Recommended defaults:
+```
+-rc constqp
+-qp 20
+-preset p5
+-profile:v main10
+```
+
+---
+
+### 6. Audio is stereo but original was 5.1  
+**Cause:**  
+You manually changed audio settings.
+
+**Fix:**  
+The script preserves all audio except MP3.  
+If you modified the audio line, restore:
+
+```
+-c:a copy
+```
+
+---
+
+### 7. AVI files still fail  
+**Cause:**  
+Some very old AVI files have broken headers.
+
+**Fix:**  
+Try converting manually:
+
+```
+ffmpeg -i input.avi -c:v copy -c:a mp3 repaired.avi
+```
+
+Or re‑mux to MKV first:
+
+```
+ffmpeg -i input.avi -c copy temp.mkv
+```
+
+Then run the script again.
+
+---
+
 ## 📝 License
 
 This project is licensed under the **MIT License**.  
@@ -176,4 +313,3 @@ this script simply automates common workflows.
 
 Feel free to star the repository or contribute improvements.  
 Enjoy your clean, modern HEVC media library!
-```
