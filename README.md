@@ -1,6 +1,6 @@
 Fast, dependency‑free PowerShell script for converting AVI/MP4/MKV to HEVC using FFmpeg + NVENC.
 
-# 🎬 Video Convert HEVC (PowerShell)
+# 🎬 HEVC Media Optimizer Script (PowerShell)
 ```
 #      _  _ _____   _____   __  __        _ _         ___       _   _       _              ___        _      _   
 #     | || | __\ \ / / __| |  \/  |___ __| (_)__ _   / _ \ _ __| |_(_)_ __ (_)______ _ _  / __|__ _ _(_)_ __| |_ 
@@ -183,7 +183,7 @@ Recommended editors:
 - **Kate / Geany / Vim / Emacs**
 
 Avoid:
-- ❌ Windows Notepad (Win10/Win11)
+- ❌ Windows Powershell ISE (Win10/Win11)
 - ❌ WordPad
 - ❌ Any editor that silently adds BOM
 
