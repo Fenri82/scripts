@@ -1,6 +1,13 @@
 Fast, dependency‑free PowerShell script for converting AVI/MP4/MKV to HEVC using FFmpeg + NVENC.
 
 # 🎬 Video Convert HEVC (PowerShell)
+```
+#      _  _ _____   _____   __  __        _ _         ___       _   _       _              ___        _      _   
+#     | || | __\ \ / / __| |  \/  |___ __| (_)__ _   / _ \ _ __| |_(_)_ __ (_)______ _ _  / __|__ _ _(_)_ __| |_ 
+#     | __ | _| \ V / (__  | |\/| / -_) _` | / _` | | (_) | '_ \  _| | '  \| |_ / -_) '_| \__ Y _| '_| | '_ \  _|
+#     |_||_|___| \_/ \___| |_|  |_\___\__,_|_\__,_|  \___/| .__/\__|_|_|_|_|_/__\___|_|   |___|__|_| |_| .__/\__|
+#                                                         |_|                                          |_|         
+```
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5+-blue)
 ![FFmpeg](https://img.shields.io/badge/FFmpeg-required-green)
